@@ -1,0 +1,9 @@
+{
+  "name": "language-masters-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/language-masters-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["language-masters"],
+  "// targets": "to see all targets run: nx show project language-masters-e2e --web",
+  "targets": {}
+}
