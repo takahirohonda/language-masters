@@ -23,8 +23,8 @@
     "**/*.tsx",
     "**/*.js",
     "**/*.jsx",
-    "../../apps/language-masters/.next/types/**/*.ts",
-    "../../dist/apps/language-masters/.next/types/**/*.ts",
+    "../../apps/next-app/.next/types/**/*.ts",
+    "../../dist/apps/next-app/.next/types/**/*.ts",
     "next-env.d.ts"
   ],
   "exclude": ["node_modules", "jest.config.ts", "**/*.spec.ts", "**/*.test.ts"]
