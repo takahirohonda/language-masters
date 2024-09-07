@@ -21,7 +21,16 @@ yarn nx g @nx/next:app next-app
 yarn npx nx g @nx/react:lib mylib
 ```
 
-2. Troubleshooting after adding eslint file
+2. Adding Tailwind CSS for react and next project.
+
+```bash
+nx g @nx/react:setup-tailwind --project=react-app
+nx g @nx/react:setup-tailwind --project=next-app
+```
+
+Reference: https://nx.dev/recipes/react/using-tailwind-css-in-react#step-4:-applying-configuration-to-libraries
+
+3. Troubleshooting after adding eslint file
 
 ```bash
 # Cannot find module 'eslint-plugin-jest'
