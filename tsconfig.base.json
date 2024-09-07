@@ -14,7 +14,12 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@language-masters/components/common": ["components/common/src/index.ts"],
+      "@language-masters/components/common-styles": [
+        "components/common/src/styles.css"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

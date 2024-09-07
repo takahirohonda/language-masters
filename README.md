@@ -17,8 +17,8 @@ yarn nx dev next-app
 yarn nx g @nx/react:app react-app
 yarn nx g @nx/next:app next-app
 
-# Adding lib
-yarn npx nx g @nx/react:lib mylib
+# Added a component lib
+yarn nx g lib common --directory=components
 ```
 
 2. Adding Tailwind CSS for react and next project.
@@ -26,6 +26,7 @@ yarn npx nx g @nx/react:lib mylib
 ```bash
 nx g @nx/react:setup-tailwind --project=react-app
 nx g @nx/react:setup-tailwind --project=next-app
+nx g @nx/react:setup-tailwind --project=components-common
 ```
 
 Reference: https://nx.dev/recipes/react/using-tailwind-css-in-react#step-4:-applying-configuration-to-libraries
