@@ -1,12 +1,13 @@
 import clsx from 'clsx'
 
-export const H1Main = ({ text }: { text: string }) => (
+export const H1Main = ({ children }: { children: React.ReactNode }) => (
   <h1
     className={clsx(`
-      text-[68px]
+      text-[52px]
+      md:text-[68px]
       yellow-light-blue-gradient
     `)}
   >
-    {text}
+    {children}
   </h1>
 )

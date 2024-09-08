@@ -1,6 +1,6 @@
 import clsx from 'clsx'
-import { H1Main } from '@language-masters/components/common'
-import { LANDING_PAGE_H1 } from './const'
+import { H1Main, TextLarge, Button } from '@language-masters/components/common'
+import { LANDING_PAGE_H1, LANDING_PAGE_TEXT } from './const'
 import Head from 'next/head'
 
 const Home = () => {
@@ -11,8 +11,27 @@ const Home = () => {
         <meta property="og:title" content="My page title" key="home-title" />
         <link rel="icon" href="/favicon-96x96.png" />
       </Head>
-      <div className="flex">
-        <H1Main text={LANDING_PAGE_H1} />
+      <div className="flex flex-col lg:flex-row">
+        <div className="w-auto lg:w-[60%] flex text-center">
+          <H1Main>{LANDING_PAGE_H1}</H1Main>
+        </div>
+        <div
+          className={clsx(`
+            w-auto
+            lg:w-[40%] 
+            flex
+            flex-col
+            items-center 
+            gap-[24px] 
+            mt-[18px] 
+            ml-[0px] 
+            lg:ml-[16px]`)}
+        >
+          <TextLarge>{LANDING_PAGE_TEXT}</TextLarge>
+          <div>
+            <Button size="large" text="Sign Up" />
+          </div>
+        </div>
       </div>
     </>
   )

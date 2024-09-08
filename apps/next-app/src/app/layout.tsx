@@ -1,6 +1,6 @@
 import '@language-masters/components/common-styles'
 import clsx from 'clsx'
-import Head from 'next/head'
+import { Header } from '@language-masters/components/common'
 
 export const metadata = {
   title: 'Welcome to next-app',
@@ -15,17 +15,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-primary-black h-screen">
-        <main
-          className={clsx(`
-            container
+        <div className="container h-full flex flex-col px-[16px]">
+          <Header brandName="Language Masters" />
+          <main
+            className={clsx(`
             flex
             flex-col
             items-center
-            h-[100%]
+            justify-center
+            grow
           `)}
-        >
-          {children}
-        </main>
+          >
+            {children}
+          </main>
+        </div>
       </body>
     </html>
   )
