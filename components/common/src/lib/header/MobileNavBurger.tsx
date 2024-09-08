@@ -12,9 +12,9 @@ const NavBurger = ({ isOpen, transform }: NavBurgerProps) => (
     className={clsx(`
       border
       border-b-2
-      ${isOpen ? 'border-black' : 'border-white'}
+      ${isOpen ? 'border-white' : 'border-white'}
       ${isOpen && transform}
-      w-[20px]
+      w-[24px]
     `)}
   />
 )
@@ -38,11 +38,11 @@ export const MobileNavBurger = ({ onClick, isOpen }: MobileNavBurgerProps) => {
     >
       <NavBurger
         isOpen={isOpen}
-        transform="transform transition-transform duration-500 rotate-45 translate-y-[4px]"
+        transform="transform transition-transform duration-300 rotate-45 translate-y-[4px]"
       />
       <NavBurger
         isOpen={isOpen}
-        transform="transform transition-transform duration-500 -rotate-45 -translate-y-[6px]"
+        transform="transform transition-transform duration-300 -rotate-45 -translate-y-[6px]"
       />
     </button>
   )
