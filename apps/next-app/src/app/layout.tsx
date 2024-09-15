@@ -1,5 +1,6 @@
 import '@language-masters/components/common-styles'
 import clsx from 'clsx'
+import { ClerkProvider } from '@clerk/nextjs'
 import { Header } from '@language-masters/components/common'
 
 export const metadata = {
@@ -13,23 +14,25 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className="bg-primary-black h-screen">
-        <div className="container h-full flex flex-col px-[16px]">
-          <Header brandName="Language Masters" />
-          <main
-            className={clsx(`
+    <ClerkProvider>
+      <html lang="en">
+        <body className="bg-primary-black h-screen">
+          <div className="container h-full flex flex-col px-[16px]">
+            <Header />
+            <main
+              className={clsx(`
             flex
             flex-col
             items-center
             justify-center
             grow
           `)}
-          >
-            {children}
-          </main>
-        </div>
-      </body>
-    </html>
+            >
+              {children}
+            </main>
+          </div>
+        </body>
+      </html>
+    </ClerkProvider>
   )
 }

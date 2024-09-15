@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { Button } from '../button'
+import { SignedIn, SignedOut, UserButton, SignOutButton } from '@clerk/nextjs'
+import { SignUpButton } from '../Buttons'
 
 export const PageLinks = () => (
   <>
@@ -14,8 +15,14 @@ export const PageLinks = () => (
 
 export const ActionLinks = () => (
   <>
-    <Link href="/sign-in">Sign In</Link>
-    <Button text="Sign Up" />
+    <SignedOut>
+      <Link href="/sign-in">Sign In</Link>
+      <SignUpButton size="medium" />
+    </SignedOut>
+    <SignedIn>
+      <SignOutButton />
+      <UserButton />
+    </SignedIn>
   </>
 )
 

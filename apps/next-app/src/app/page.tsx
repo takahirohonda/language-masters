@@ -1,7 +1,11 @@
 import clsx from 'clsx'
-import { H1Main, TextLarge, Button } from '@language-masters/components/common'
+
+import { SignedIn, SignedOut } from '@clerk/nextjs'
+import { H1Main, TextLarge } from '@language-masters/components/common'
 import { LANDING_PAGE_H1, LANDING_PAGE_TEXT } from './const'
 import Head from 'next/head'
+import { SignUpButton } from './components/Buttons'
+import Link from 'next/link'
 
 const Home = () => {
   return (
@@ -29,7 +33,12 @@ const Home = () => {
         >
           <TextLarge>{LANDING_PAGE_TEXT}</TextLarge>
           <div>
-            <Button size="large" text="Sign Up" />
+            <SignedIn>
+              <Link href="./dashboard">Go to Dashboard</Link>
+            </SignedIn>
+            <SignedOut>
+              <SignUpButton size="large" />
+            </SignedOut>
           </div>
         </div>
       </div>

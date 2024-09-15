@@ -1,7 +1,7 @@
 'use client'
 import clsx from 'clsx'
 
-type ButtonSize = 'large' | 'medium'
+export type ButtonSize = 'large' | 'medium'
 
 interface ButtonProps {
   text: string
