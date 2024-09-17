@@ -39,3 +39,7 @@ a {
 .primary-button-gradient {
   background: linear-gradient(179deg, #405bff 1.06%, #7084ff 123.42%);
 }
+
+.red-purple-button-gradient {
+  background: linear-gradient(223deg, #ff386b -1.29%, #a34fde 110.16%);
+}

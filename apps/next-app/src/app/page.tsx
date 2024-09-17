@@ -6,6 +6,7 @@ import { LANDING_PAGE_H1, LANDING_PAGE_TEXT } from './const'
 import Head from 'next/head'
 import { SignUpButton } from './components/Buttons'
 import Link from 'next/link'
+import { GoToDashboardButtonLink } from './components/Links/GoToDashboardButtonLink'
 
 const Home = () => {
   return (
@@ -34,7 +35,7 @@ const Home = () => {
           <TextLarge>{LANDING_PAGE_TEXT}</TextLarge>
           <div>
             <SignedIn>
-              <Link href="./dashboard">Go to Dashboard</Link>
+              <GoToDashboardButtonLink />
             </SignedIn>
             <SignedOut>
               <SignUpButton size="large" />
