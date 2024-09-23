@@ -12,7 +12,7 @@ const createdAt = () =>
     .default(sql`CURRENT_TIMESTAMP`)
     .notNull()
 
-export const usersTable = pgTable('users_table', {
+export const users = pgTable('users', {
   id: id(),
   createdAt: createdAt(),
   firstname: text('name').notNull(),
@@ -20,4 +20,5 @@ export const usersTable = pgTable('users_table', {
   middlename: text('name'),
   email: text('email').unique().notNull(),
   defaultLanguage: text('default_language'),
+  imgUrl: text('img_url'),
 })
