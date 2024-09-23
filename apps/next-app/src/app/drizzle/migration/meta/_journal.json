@@ -22,6 +22,20 @@
       "when": 1727130683650,
       "tag": "0002_watery_sway",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1727132346168,
+      "tag": "0003_gray_gabe_jones",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1727132873631,
+      "tag": "0004_wise_chimera",
+      "breakpoints": true
     }
   ]
 }

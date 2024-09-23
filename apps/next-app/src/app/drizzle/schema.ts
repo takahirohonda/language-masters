@@ -15,10 +15,10 @@ const createdAt = () =>
 export const users = pgTable('users', {
   id: id(),
   createdAt: createdAt(),
-  firstname: text('name').notNull(),
-  lastname: text('name').notNull(),
-  middlename: text('name'),
+  firstName: text('firstname').notNull(),
+  lastName: text('lastname').notNull(),
+  middleName: text('middlename'),
   email: text('email').unique().notNull(),
   defaultLanguage: text('default_language'),
-  imgUrl: text('img_url'),
+  imageUrl: text('image_url'),
 })

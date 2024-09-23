@@ -44,6 +44,16 @@ yarn add eslint-plugin-jest eslint-plugin-prettier -D
 
 Use `serial` if you need `integer autoincrement`.
 
+2. Select: https://orm.drizzle.team/docs/select
+
+```ts
+import { eq, lt, gte, ne } from 'drizzle-orm'
+await db.select().from(users).where(eq(users.id, 42))
+await db.select().from(users).where(lt(users.id, 42))
+await db.select().from(users).where(gte(users.id, 42))
+await db.select().from(users).where(ne(users.id, 42))
+```
+
 # (2) Drizzle Kid Reference
 
 ```bash
