@@ -17,7 +17,9 @@ export const PageLinks = () => (
 export const ActionLinks = () => (
   <>
     <SignedOut>
-      <Link href="/sign-in">Sign In</Link>
+      <Link href="/sign-in" className="hover:text-link-blue">
+        Sign In
+      </Link>
       <ButtonLink text="Sing Up" size="medium" href="/sign-up" />
     </SignedOut>
     <SignedIn>

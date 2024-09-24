@@ -21,7 +21,7 @@ const NewUser = async () => {
 
   console.log(`checking userInDb: ${JSON.stringify(userInDb)}`)
 
-  if (userInDb && userInDb.length > 1) {
+  if (userInDb[0]) {
     redirect(LOGGED_IN_USER_LANDING_PAGE)
   } else {
     const createUserOutcome = await createUser({
