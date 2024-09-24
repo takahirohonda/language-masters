@@ -6,8 +6,8 @@ export default defineConfig({
   dialect: 'postgresql',
   // __dirname doesn't work when running drizzle kit generate and migrate...
   // out: path.join(__dirname, 'src/app/drizzle/migration'),
-  out: './apps/next-app/src/app/drizzle/migration',
-  schema: './apps/next-app/src/app/drizzle/schema.ts',
+  out: './apps/next-app/src/drizzle/migration',
+  schema: './apps/next-app/src/drizzle/schema.ts',
   dbCredentials: {
     host: process.env.DB_HOST!,
     // port: Number(process.env.DB_PORT!),

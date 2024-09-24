@@ -1,7 +1,7 @@
 import { auth, currentUser } from '@clerk/nextjs/server'
 
-import { createUser, getUserByEmail } from '../db/user'
-import { LOGGED_IN_USER_LANDING_PAGE } from '../const/routes'
+import { createUser, getUserByEmail } from '../../db/user'
+import { LOGGED_IN_USER_LANDING_PAGE } from '../../const/routes'
 import { redirect } from 'next/navigation'
 
 const NewUser = async () => {
@@ -21,7 +21,7 @@ const NewUser = async () => {
 
   console.log(`checking userInDb: ${JSON.stringify(userInDb)}`)
 
-  if (userInDb) {
+  if (userInDb && userInDb.length > 1) {
     redirect(LOGGED_IN_USER_LANDING_PAGE)
   } else {
     const createUserOutcome = await createUser({
@@ -31,7 +31,9 @@ const NewUser = async () => {
       imageUrl,
     })
 
-    console.log(`checking createUserOutcome: ${createUserOutcome}`)
+    console.log(
+      `checking createUserOutcome: ${JSON.stringify(createUserOutcome)}`
+    )
   }
   redirect(LOGGED_IN_USER_LANDING_PAGE)
 }

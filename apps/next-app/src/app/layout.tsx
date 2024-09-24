@@ -1,7 +1,7 @@
 import '@language-masters/components/common-styles'
 import clsx from 'clsx'
 import { ClerkProvider } from '@clerk/nextjs'
-import { Header } from './components/Headers'
+import { Header } from '../components/Headers'
 
 export const metadata = {
   title: 'Welcome to next-app',
