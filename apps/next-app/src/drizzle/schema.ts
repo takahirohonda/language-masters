@@ -18,6 +18,7 @@ export const users = pgTable('users', {
   firstName: text('firstname').notNull(),
   lastName: text('lastname').notNull(),
   middleName: text('middlename'),
+  displayName: text('display_name'),
   email: text('email').unique().notNull(),
   defaultLanguage: text('default_language'),
   imageUrl: text('image_url'),

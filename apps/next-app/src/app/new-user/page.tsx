@@ -1,4 +1,4 @@
-import { auth, currentUser } from '@clerk/nextjs/server'
+import { currentUser } from '@clerk/nextjs/server'
 
 import { createUser, getUserByEmail } from '../../db/user'
 import { LOGGED_IN_USER_LANDING_PAGE } from '../../const/routes'
@@ -8,7 +8,7 @@ const NewUser = async () => {
   const user = await currentUser()
 
   if (!user) {
-    // handle error here
+    console.error('[Core] No user from currentUser()')
     return
   }
 

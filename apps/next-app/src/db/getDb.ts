@@ -4,6 +4,7 @@ import { Client } from 'pg'
 
 export const getDb = async () => {
   if (!globalThis.db) {
+    // Form https://xata.io/docs/integrations/drizzle
     const xata = getXataClient()
     const client = new Client({ connectionString: xata.sql.connectionString })
     await client.connect()
