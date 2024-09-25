@@ -2,7 +2,13 @@
 
 ## file name.
 
-It seems to only work with route.ts...
+It seems to only work with route.ts.
+
+https://nextjs.org/docs/app/api-reference/file-conventions/route
+
+## Response
+
+Use `NextResponse`: https://nextjs.org/docs/app/api-reference/functions/next-response
 
 ## Handle different HTTP methods
 
