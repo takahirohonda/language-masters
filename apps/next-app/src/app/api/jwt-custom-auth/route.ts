@@ -1,8 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import jwt from 'jsonwebtoken'
 import { NextResponse } from 'next/server'
+import { headers } from 'next/headers'
 
-export async function GET(request: NextApiRequest) {
+export async function GET(request: Request) {
   const secret = process.env.NEXT_PUBLIC_JWT_SECRET
   if (!secret) {
     return NextResponse.json(
@@ -10,8 +11,17 @@ export async function GET(request: NextApiRequest) {
       { status: 500 }
     )
   }
-  const token = request.headers.authorization || ''
-  const jwtData = jwt.verify(token, secret)
+  const token = request.headers.get('authorization') || ''
+  console.log(
+    `checking token in the request header: ${JSON.stringify(request.headers)}`
+  )
+  console.log(
+    `checking token in the request header: ${JSON.stringify(request)}`
+  )
+  if (!token) {
+    return NextResponse.json({ error: 'not authorised' }, { status: 400 })
+  }
+  const jwtData = jwt.verify(token.split(' ')[1], secret)
   if (jwtData) {
     return NextResponse.json({
       message: 'you are authorised!',
@@ -44,14 +54,15 @@ export async function POST({ username, password }: ApiRequest) {
     secret
   )
   return NextResponse.json(
-    { token },
-    {
-      status: 200,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-      },
-    }
+    { token }
+    // no longer required, it's in the config.
+    // {
+    //   status: 200,
+    //   headers: {
+    //     'Access-Control-Allow-Origin': '*',
+    //     'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+    //     'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+    //   },
+    // }
   )
 }
