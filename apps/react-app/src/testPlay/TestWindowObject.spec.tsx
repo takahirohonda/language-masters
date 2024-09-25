@@ -3,8 +3,10 @@ import { render, screen } from '@testing-library/react'
 import { TestWindowObject } from './TestWindowObject'
 
 describe('TestWindowObject', () => {
-  beforeEach(() => {
-    window.Cypress = undefined
+  afterEach(() => {
+    // otherwise this will leak between tests as
+    // jest runs tests in a global environment by default
+    delete window.Cypress
   })
   it('should render the window object', () => {
     window.Cypress = true
