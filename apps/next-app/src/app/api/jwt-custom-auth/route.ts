@@ -21,6 +21,7 @@ export async function GET(request: Request) {
   if (!token) {
     return NextResponse.json({ error: 'not authorised' }, { status: 400 })
   }
+  // we can verify the token synchronously when the secret is just a string.
   const jwtData = jwt.verify(token.split(' ')[1], secret)
   if (jwtData) {
     return NextResponse.json({
