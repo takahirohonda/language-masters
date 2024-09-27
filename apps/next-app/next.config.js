@@ -28,8 +28,9 @@ const nextConfig = {
           },
           {
             key: 'Access-Control-Allow-Headers',
-            value:
-              'X-Requested-With, Content-Type, Authorization, X-CSRF-Token, Content-Length, Content-MD5, Data, X-Api-Version',
+            value: "*",
+            // value:
+            //   'X-Requested-With, Content-Type, Authorization, X-CSRF-Token, Content-Length, Content-MD5, Data, X-Api-Version',
           },
         ],
       },

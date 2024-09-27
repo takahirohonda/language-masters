@@ -1,6 +1,8 @@
+import { getUser } from "./resolvers/user"
+
 const resolvers = {
   Query: {
-    me: () => 'hi',
+    currentUser: async () => await getUser()
   },
 }
 

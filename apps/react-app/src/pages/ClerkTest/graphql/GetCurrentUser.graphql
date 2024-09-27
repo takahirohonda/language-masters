@@ -1,0 +1,12 @@
+query GetCurrentUser {
+  currentUser {
+    createdAt
+    defaultLanguage
+    displayName
+    email
+    firstName
+    id
+    imageUrl
+    lastName
+  }
+}

@@ -9,6 +9,13 @@ export const getUserByEmail = async (email: string) => {
   return user
 }
 
+export const getUsers = async () => {
+  const { db } = await getDb()
+  const allUsers = await db.select().from(users)
+
+  return allUsers
+}
+
 export interface CreateUserArgs {
   firstName: string
   lastName: string

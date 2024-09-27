@@ -9,22 +9,13 @@ import {
   useAuth,
 } from '@clerk/clerk-react'
 import { useEffect, useState } from 'react'
+import { useGetCurrentUserQuery } from './graphql/GetCurrentUser.generated'
+import { useNavigate } from 'react-router-dom'
+import { SIGN_IN } from '../../const/routes'
 
 export const ClerkTest = () => {
-  // https://clerk.com/docs/references/react/use-auth
-  const { getToken, isLoaded, isSignedIn } = useAuth()
-  const [token, setToken] = useState<string | null>(null)
-
-  const getTokenAsync = async () => {
-    const token = await getToken()
-    setToken(token)
-  }
-
-  useEffect(() => {
-    if (isSignedIn) {
-      getTokenAsync()
-    }
-  }, [isSignedIn])
+  const { loading, error, data } = useGetCurrentUserQuery()
+  const loggedInUser = data?.currentUser
 
   return (
     <>
@@ -36,7 +27,7 @@ export const ClerkTest = () => {
         <UserButton />
         <SignOutButton />
       </SignedIn>
-      {token && <p>my jwt: ${token}</p>}
+      {loggedInUser && <p>Logged in user: {JSON.stringify(loggedInUser)}</p>}
     </>
   )
 }

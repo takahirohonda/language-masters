@@ -29,5 +29,17 @@ export type Scalars = {
 
 export type Query = {
   __typename?: 'Query'
-  me?: Maybe<Scalars['String']['output']>
+  currentUser?: Maybe<User>
+}
+
+export type User = {
+  __typename?: 'User'
+  createdAt?: Maybe<Scalars['String']['output']>
+  defaultLanguage?: Maybe<Scalars['String']['output']>
+  displayName?: Maybe<Scalars['String']['output']>
+  email?: Maybe<Scalars['String']['output']>
+  firstName?: Maybe<Scalars['String']['output']>
+  id?: Maybe<Scalars['ID']['output']>
+  imageUrl?: Maybe<Scalars['String']['output']>
+  lastName?: Maybe<Scalars['String']['output']>
 }
