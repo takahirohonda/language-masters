@@ -6,12 +6,9 @@ import {
   SignInButton,
   UserButton,
   SignOutButton,
-  useAuth,
 } from '@clerk/clerk-react'
-import { useEffect, useState } from 'react'
+
 import { useGetCurrentUserQuery } from './graphql/GetCurrentUser.generated'
-import { useNavigate } from 'react-router-dom'
-import { SIGN_IN } from '../../const/routes'
 
 export const ClerkTest = () => {
   const { loading, error, data } = useGetCurrentUserQuery()
