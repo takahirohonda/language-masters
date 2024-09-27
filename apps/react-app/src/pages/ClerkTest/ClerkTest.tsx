@@ -10,7 +10,7 @@ import {
 } from '@clerk/clerk-react'
 import { useEffect, useState } from 'react'
 
-export const AuthTest = () => {
+export const ClerkTest = () => {
   // https://clerk.com/docs/references/react/use-auth
   const { getToken, isLoaded, isSignedIn } = useAuth()
   const [token, setToken] = useState<string | null>(null)

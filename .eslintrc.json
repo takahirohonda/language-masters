@@ -37,7 +37,10 @@
         "plugin:jest/recommended",
         "plugin:prettier/recommended"
       ],
-      "rules": {}
+      "plugins": ["prettier"],
+      "rules": {
+        "prettier/prettier": "error"
+      }
     },
     {
       "files": ["*.js", "*.jsx"],
