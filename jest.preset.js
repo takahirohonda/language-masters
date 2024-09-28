@@ -8,7 +8,7 @@ module.exports = {
     '^.+\\.(tsx?|js|html)$': [
       'ts-jest',
       {
-        //apps/react-my-playground/tsconfig.spec.json
+        // this path is apps/react-app/tsconfig.spec.json
         tsconfig: '<rootDir>/tsconfig.spec.json',
         jsx: 'react',
       },

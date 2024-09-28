@@ -7,6 +7,7 @@ import {
 import { NextRequest } from 'next/server'
 import typeDefs from './schema'
 import resolvers from './resolvers'
+import * as fs from "fs"
 
 let plugins = []
 if (process.env.NODE_ENV === 'production') {
@@ -33,5 +34,11 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
+  const headers = request.headers.get('Authorization')
+  const token = headers?.split(' ')[1]
+  const cert = fs.readFileSync('public.pem')
+
+
+
   return handler(request)
 }

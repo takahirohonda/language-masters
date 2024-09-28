@@ -189,3 +189,38 @@ Output from `auth()`
   "createOrganizationsLimit": null
 }
 ```
+
+# Test with Jest and react-testing-lib
+
+## (1) TypeError: expect(...).toBeVisible is not a function 
+
+This is caused by missing @testing-library/jest-dom.
+
+- (1) configure jest-dom with testing library
+  Then, add `setupTests.ts` in `src`.
+
+```ts
+import '@testing-library/jest-dom'
+```
+
+Then add this line in `jest.config.ts`.
+
+```ts
+ setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
+```
+
+- (2) Add css module & jest-dom types
+
+Add this line in `tsconfig.spec.json`
+
+```json
+{
+...
+// jest and node types are added by default
+ "types": ["jest", "node",
+    // these two lines should be added
+    "@nx/react/typings/cssmodule.d.ts",
+    "@testing-library/jest-dom"
+    ]
+}
+

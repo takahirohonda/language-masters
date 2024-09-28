@@ -1,9 +1,8 @@
-import { RedirectToSignIn, useAuth } from "@clerk/clerk-react"
-import { useEffect } from "react"
-import { useNavigate } from "react-router-dom"
+import { RedirectToSignIn, useAuth } from '@clerk/clerk-react'
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export const SignIn = () => {
-
   const { isSignedIn } = useAuth()
   const navigate = useNavigate()
 
@@ -13,5 +12,5 @@ export const SignIn = () => {
     }
   }, [isSignedIn, navigate])
 
-  return (<RedirectToSignIn />)
+  return <RedirectToSignIn />
 }
