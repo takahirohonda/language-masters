@@ -24,7 +24,9 @@ export const ApolloProviderWithClerkAuth = ({
   )
 
   const getTokenAsync = useCallback(async () => {
-    const token = await getToken()
+    // this is the name of the custom JWT template I configured in clerk
+    // https://clerk.com/docs/references/nextjs/auth-object#get-token
+    const token = await getToken({ template: 'next-react-integration'})
     setToken(token)
   }, [getToken])
 
