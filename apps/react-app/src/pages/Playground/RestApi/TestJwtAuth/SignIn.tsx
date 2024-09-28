@@ -38,7 +38,7 @@ export const SignIn = () => {
     const res = await response.json()
     console.log(`checking the response with fetch: %0`, res)
     setFetchWithTokenResponse(res)
-  }, [])
+  }, [token])
 
   return (
     <section className="flex flex-col h-full">

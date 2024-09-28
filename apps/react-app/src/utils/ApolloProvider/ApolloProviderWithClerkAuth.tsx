@@ -1,5 +1,5 @@
 import { useAuth } from '@clerk/clerk-react'
-import { ReactNode, useEffect, useMemo, useState } from 'react'
+import { ReactNode, useCallback, useEffect, useMemo, useState } from 'react'
 import { getClient } from './client'
 import { GRAPHQL_NEXT_ENDPOINT } from '../../const/env'
 import { ApolloProvider } from '@apollo/client'
@@ -23,22 +23,22 @@ export const ApolloProviderWithClerkAuth = ({
     [token]
   )
 
-  const getTokenAsync = async () => {
+  const getTokenAsync = useCallback(async () => {
     const token = await getToken()
     setToken(token)
-  }
+  }, [getToken])
 
   useEffect(() => {
     if (isLoaded && !isSignedIn) {
       navigate(SIGN_IN)
     }
-  }, [isSignedIn, navigate])
+  }, [isSignedIn, isLoaded, navigate, token])
 
   useEffect(() => {
     if (isSignedIn) {
       getTokenAsync()
     }
-  }, [isSignedIn])
+  }, [getTokenAsync, isSignedIn])
 
   return <ApolloProvider client={client}>{children}</ApolloProvider>
 }

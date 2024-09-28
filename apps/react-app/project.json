@@ -12,6 +12,12 @@
         "command": "yarn nx serve react-app"
       }
     },
+    "lint:fix": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "yarn nx run react-app:lint --fix"
+      }
+    },
     "gql:sync": {
       "executor": "nx:run-commands",
       "options": {

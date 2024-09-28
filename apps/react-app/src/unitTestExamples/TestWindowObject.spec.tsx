@@ -1,4 +1,3 @@
-
 import { render, screen } from '@testing-library/react'
 import { TestWindowObject } from './TestWindowObject'
 
@@ -13,11 +12,10 @@ describe('TestWindowObject', () => {
     render(<TestWindowObject />)
 
     expect(screen.getByText('true')).toBeVisible()
-
   })
   it('should render false if there is no cy.Cypress', () => {
     render(<TestWindowObject />)
 
-    screen.getByText('false')
+    expect(screen.getByText('false')).toBeVisible()
   })
 })
