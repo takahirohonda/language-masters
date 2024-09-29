@@ -11,7 +11,8 @@ export async function GET(request: Request) {
       { status: 500 }
     )
   }
-  const token = request.headers.get('authorization') || ''
+  const authorizationInHeaders = request.headers.get('authorization') || ''
+  const token = (authorizationInHeaders?.split('Bearer')[1] ?? '').trim()
   console.log(
     `checking token in the request header: ${JSON.stringify(request.headers)}`
   )

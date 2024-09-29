@@ -38,8 +38,8 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
-  const headers = request.headers.get('Authorization')
-  const token = headers?.split(' ')[1] || ''
+  const authorizationInHeaders = request.headers.get('Authorization')
+  const token = (authorizationInHeaders?.split('Bearer')[1] ?? '').trim()
   // key file has to be at the root of the folder
   const certPath = path.join(process.cwd(), 'public.pem')
   const cert = fs.readFileSync(certPath)
