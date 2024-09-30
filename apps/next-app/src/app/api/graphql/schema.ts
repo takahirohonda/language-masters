@@ -3,7 +3,12 @@
 
 const schema = `#graphql
 type Query {
-	currentUser: User
+	currentUser: User | CustomAuthError
+}
+
+enum CustomAuthError {
+	TOKEN_TIMEOUT
+	UNAUTHORIZED
 }
 
 type User {
@@ -19,4 +24,3 @@ type User {
 `
 
 export default schema
-

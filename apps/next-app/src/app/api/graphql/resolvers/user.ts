@@ -1,9 +1,8 @@
-import { getUsers } from "../../../../db/user"
+import { getUsers } from '../../../../db/user'
 
 export const getUser = async () => {
-
   const userInDb = await getUsers()
-  const { 
+  const {
     id,
     createdAt,
     firstName,
@@ -11,10 +10,10 @@ export const getUser = async () => {
     displayName,
     email,
     defaultLanguage,
-    imageUrl
+    imageUrl,
   } = userInDb[0]
-  
-  return { 
+
+  return {
     id,
     createdAt,
     firstName,
@@ -22,6 +21,6 @@ export const getUser = async () => {
     displayName,
     email,
     defaultLanguage,
-    imageUrl
+    imageUrl,
   }
 }
