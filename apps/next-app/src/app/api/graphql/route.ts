@@ -1,7 +1,7 @@
 import { startServerAndCreateNextHandler } from '@as-integrations/next'
 import jwt from 'jsonwebtoken'
 import path from 'path'
-import dayjs from 'dayjs'
+
 import { ApolloServer } from '@apollo/server'
 import {
   ApolloServerPluginLandingPageLocalDefault,
@@ -31,29 +31,49 @@ const server = new ApolloServer({
   plugins,
 })
 
-const handler = startServerAndCreateNextHandler<NextRequest>(server, {
-  context: async (req) => {
-    const authorizationInHeaders = req.headers.get('Authorization')
-    const token = (authorizationInHeaders?.split('Bearer')[1] ?? '').trim()
-    // key file has to be at the root of the folder
-    const certPath = path.join(process.cwd(), 'public.pem')
-    const cert = fs.readFileSync(certPath)
+const handler = startServerAndCreateNextHandler<NextRequest>(server)
 
-    const jwtData = await jwt.verify(token, cert)
-    console.log(`checking token: ${token}`)
-    console.log(`checking jwtData: ${JSON.stringify(jwtData)}`)
+const handlerWithAuthContext = startServerAndCreateNextHandler<NextRequest>(
+  server,
+  {
+    context: async (req) => {
+      if (req.method === 'POST') {
+        let body = null
+        try {
+          const rawBody = await req.text()
+          body = JSON.parse(rawBody)
+        } catch (error) {
+          console.warn('Unable to parse request body', error)
+        }
 
-    return {
-      req,
-      jwtData,
-    }
-  },
-})
+        const operationName = body?.operationName || ''
+        // Skip token validation for IntrospectionQuery
+        if (operationName === 'IntrospectionQuery') {
+          return { req } // No token validation for introspection
+        }
+
+        const authorizationInHeaders = req.headers.get('Authorization')
+        const token = (authorizationInHeaders?.split('Bearer')[1] ?? '').trim()
+        // key file has to be at the root of the folder
+        const certPath = path.join(process.cwd(), 'public.pem')
+
+        const cert = fs.readFileSync(certPath)
+        const jwtData = await jwt.verify(token, cert)
+        console.log(`checking token: ${token}`)
+        console.log(`checking jwtData: ${JSON.stringify(jwtData)}`)
+        return {
+          req,
+          jwtData,
+        }
+      }
+    },
+  }
+)
 
 export async function GET(request: NextRequest) {
   return handler(request)
 }
 
 export async function POST(request: NextRequest) {
-  return handler(request)
+  return handlerWithAuthContext(request)
 }

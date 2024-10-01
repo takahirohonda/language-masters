@@ -8,7 +8,7 @@ import {
 
 const resolvers = {
   Query: {
-    currentUser: async (_, _, ctx: UserContext) => {
+    currentUser: async (parent, args, ctx: UserContext, info) => {
       const result = validateToken(ctx.jwtData)
       if (result !== TOKEN_VALID) {
         handleTokenValidationError(result)

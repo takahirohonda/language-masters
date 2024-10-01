@@ -3,7 +3,7 @@
 
 const schema = `#graphql
 type Query {
-	currentUser: User | CustomAuthError
+	currentUser: User
 }
 
 enum CustomAuthError {
