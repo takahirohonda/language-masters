@@ -29,42 +29,53 @@ const server = new ApolloServer({
   resolvers,
   typeDefs,
   plugins,
+  // this doesn't fix the issue
+  // introspection: true,
 })
 
 const handler = startServerAndCreateNextHandler<NextRequest>(server)
 
+// https://www.apollographql.com/docs/apollo-server/data/context/
 const handlerWithAuthContext = startServerAndCreateNextHandler<NextRequest>(
   server,
   {
     context: async (req) => {
+      let body = null
+
       if (req.method === 'POST') {
-        let body = null
         try {
           const rawBody = await req.text()
           body = JSON.parse(rawBody)
+          console.log(`Request Body: ${JSON.stringify(body)}`)
         } catch (error) {
           console.warn('Unable to parse request body', error)
         }
+      }
+      if (body?.operationName === 'IntrospectionQuery') {
+        console.log('Skipping authentication for introspection query.')
+        return { req }
+      }
 
-        const operationName = body?.operationName || ''
-        // Skip token validation for IntrospectionQuery
-        if (operationName === 'IntrospectionQuery') {
-          return { req } // No token validation for introspection
-        }
-
+      try {
         const authorizationInHeaders = req.headers.get('Authorization')
-        const token = (authorizationInHeaders?.split('Bearer')[1] ?? '').trim()
-        // key file has to be at the root of the folder
-        const certPath = path.join(process.cwd(), 'public.pem')
+        const token = (authorizationInHeaders?.split('Bearer ')[1] ?? '').trim()
 
+        // Read your public key from the file system
+        const certPath = path.join(process.cwd(), 'public.pem')
         const cert = fs.readFileSync(certPath)
+
+        // Verify the token
         const jwtData = await jwt.verify(token, cert)
-        console.log(`checking token: ${token}`)
-        console.log(`checking jwtData: ${JSON.stringify(jwtData)}`)
+        console.log(`Token: ${token}`)
+        console.log(`JWT Data: ${JSON.stringify(jwtData)}`)
+
         return {
           req,
-          jwtData,
+          jwtData, // Include JWT data in context
         }
+      } catch (e) {
+        console.error('Authentication error:', e)
+        return { req } // Return request without JWT data
       }
     },
   }
