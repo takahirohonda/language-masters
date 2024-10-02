@@ -15,7 +15,12 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@language-masters/components/common": ["components/common/src/index.ts"],
+      "@language-masters/component-sentences": [
+        "libs/component-sentences/src/index.ts"
+      ],
+      "@language-masters/components/common": [
+        "libs/components/common/src/index.ts"
+      ],
       "@language-masters/components/common-styles": [
         "components/common/src/styles.css"
       ]
