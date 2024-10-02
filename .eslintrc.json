@@ -47,5 +47,13 @@
       "extends": ["plugin:@nx/javascript"],
       "rules": {}
     }
-  ]
+  ],
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": "tsconfig.base.json"
+      }
+    }
+  }
 }
