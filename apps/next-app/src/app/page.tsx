@@ -1,11 +1,9 @@
 import clsx from 'clsx'
 
 import { SignedIn, SignedOut } from '@clerk/nextjs'
-import { H1Main, TextLarge } from '@language-masters/components/common'
+import { H1Main, TextLarge } from '@language-masters/components-common'
 import { LANDING_PAGE_H1, LANDING_PAGE_TEXT } from '../const'
-import Head from 'next/head'
 import { SignUpButton } from '../components/Buttons'
-import Link from 'next/link'
 import { GoToDashboardButtonLink } from '../components/Links/GoToDashboardButtonLink'
 
 // https://nextjs.org/docs/app/api-reference/functions/generate-metadata

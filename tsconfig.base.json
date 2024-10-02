@@ -18,10 +18,10 @@
       "@language-masters/component-sentences": [
         "libs/component-sentences/src/index.ts"
       ],
-      "@language-masters/components/common": [
+      "@language-masters/components-common": [
         "libs/components/common/src/index.ts"
       ],
-      "@language-masters/components/common-styles": [
+      "@language-masters/components-common-styles": [
         "components/common/src/styles.css"
       ]
     }
