@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { BrandHeader } from '@language-masters/components/common'
+import { BrandHeader } from '@language-masters/components-common'
 import { Nav } from './Nav'
 import { MobileNav } from './MobileNav'
 

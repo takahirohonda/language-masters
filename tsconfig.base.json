@@ -22,7 +22,7 @@
         "libs/components/common/src/index.ts"
       ],
       "@language-masters/components-common-styles": [
-        "components/common/src/styles.css"
+        "libs/components/common/src/styles.css"
       ]
     }
   },

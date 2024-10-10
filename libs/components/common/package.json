@@ -1,5 +1,5 @@
 {
-  "name": "@language-masters/components/common",
+  "name": "@language-masters/components-common",
   "version": "0.0.1",
   "main": "./index.js",
   "types": "./index.d.ts",

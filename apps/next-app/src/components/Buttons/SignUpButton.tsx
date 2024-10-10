@@ -1,7 +1,7 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import { Button, ButtonSize } from '@language-masters/components/common'
+import { Button, ButtonSize } from '@language-masters/components-common'
 import { useCallback } from 'react'
 export const SignUpButton = ({ size }: { size: ButtonSize }) => {
   const router = useRouter()

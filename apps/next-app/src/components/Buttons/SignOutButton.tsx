@@ -1,6 +1,6 @@
 'use client'
 
-import { Button, ButtonSize } from '@language-masters/components/common'
+import { Button, ButtonSize } from '@language-masters/components-common'
 import { useCallback } from 'react'
 
 import { useClerk } from '@clerk/nextjs'
