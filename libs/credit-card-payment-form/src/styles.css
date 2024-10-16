@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+a,
+p {
+  color: white;
+}
+
+.yellow-light-blue-gradient {
+  background: linear-gradient(225deg, #ebff38 -7.08%, #3dd6f5 90.68%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.blue-light-blue-gradient {
+  background: linear-gradient(225deg, #405bff -5.3%, #3dd6f5 112.86%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.red-purple-gradient {
+  background: linear-gradient(223deg, #ff386b -1.29%, #a34fde 110.16%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.light-blue-purple-gradient {
+  background: linear-gradient(220deg, #3dd6f5 -8.97%, #a34fde 94.12%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.yellow-red-gradient {
+  background: linear-gradient(220deg, #ff386b -1.29%, #ebff38 110.16%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.primary-button-gradient {
+  background: linear-gradient(179deg, #405bff 1.06%, #7084ff 123.42%);
+}
+
+.red-purple-button-gradient {
+  background: linear-gradient(223deg, #ff386b -1.29%, #a34fde 110.16%);
+}

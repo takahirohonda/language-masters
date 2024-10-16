@@ -4,12 +4,14 @@ import {
   CLERK_AUTH_TEST,
   PLAYGROUND_REST_API_SIGNIN,
   SIGN_IN,
+  TEST_REACT_HOOK_FORM,
 } from './const/routes'
 import { LayoutMain } from './components/Laytout/LayoutMain'
 
 import { Home } from './pages/Home/Home'
 import { ClerkTest } from './pages/ClerkTest/ClerkTest'
 import { SignIn } from './pages/SignIn/SignIn'
+import { TestReactHookForm } from './pages/Playground/TestReactHookForm/TestReactHookForm'
 
 export const AppRoutes = () => {
   return (
@@ -22,6 +24,7 @@ export const AppRoutes = () => {
           path={PLAYGROUND_REST_API_SIGNIN}
           element={<RestApiSignInTest />}
         />
+        <Route path={TEST_REACT_HOOK_FORM} element={<TestReactHookForm />} />
       </Route>
     </Routes>
   )

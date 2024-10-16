@@ -1,0 +1,9 @@
+{
+  "name": "credit-card-payment-form",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/credit-card-payment-form/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project credit-card-payment-form --web",
+  "targets": {}
+}

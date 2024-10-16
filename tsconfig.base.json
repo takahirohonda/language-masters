@@ -23,6 +23,9 @@
       ],
       "@language-masters/components-common-styles": [
         "libs/components/common/src/styles.css"
+      ],
+      "@language-masters/credit-card-payment-form": [
+        "libs/credit-card-payment-form/src/index.ts"
       ]
     }
   },
