@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-a,
-p {
-  color: white;
-}
-
 .yellow-light-blue-gradient {
   background: linear-gradient(225deg, #ebff38 -7.08%, #3dd6f5 90.68%);
   -webkit-background-clip: text;

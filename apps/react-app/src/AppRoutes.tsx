@@ -6,7 +6,7 @@ import {
   SIGN_IN,
   TEST_REACT_HOOK_FORM,
 } from './const/routes'
-import { LayoutMain } from './components/Laytout/LayoutMain'
+import { LayoutMain } from './components/LayoutMain/LayoutMain'
 
 import { Home } from './pages/Home/Home'
 import { ClerkTest } from './pages/ClerkTest/ClerkTest'

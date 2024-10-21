@@ -47,3 +47,5 @@ out
 .env.local
 .env
 *.pem
+
+storybook-static

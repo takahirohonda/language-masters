@@ -1,4 +1,4 @@
-import './styles.css'
+import '@language-masters/design-system-styles'
 
 export * from './lib/formValidation'
 export * from './lib/inputFormatter'

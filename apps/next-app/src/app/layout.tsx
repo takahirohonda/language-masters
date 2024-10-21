@@ -1,4 +1,5 @@
-import '@language-masters/components-common-styles'
+import '@language-masters/design-system-styles'
+import './styles.css'
 import clsx from 'clsx'
 import { ClerkProvider } from '@clerk/nextjs'
 import { Header } from '../components/Headers'

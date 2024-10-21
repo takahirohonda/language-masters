@@ -13,3 +13,19 @@ export const COLORS = {
 export const CONTAINER = {
   center: true,
 }
+
+export const THEME = {
+  container: CONTAINER,
+  extend: {
+    colors: COLORS,
+    keyframes: {
+      growLeft: {
+        '0%': { width: '0' },
+        '100%': { width: '100%' },
+      },
+    },
+    animation: {
+      growLeft: 'growLeft 500ms ease-in-out',
+    },
+  },
+}

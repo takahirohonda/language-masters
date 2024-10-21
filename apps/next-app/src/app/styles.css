@@ -1,0 +1,6 @@
+/* this doesn't affect CSS for the components from other libs */
+
+p,
+a {
+  color: white;
+}

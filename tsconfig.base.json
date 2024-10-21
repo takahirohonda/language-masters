@@ -21,11 +21,12 @@
       "@language-masters/components-common": [
         "libs/components/common/src/index.ts"
       ],
-      "@language-masters/components-common-styles": [
-        "libs/components/common/src/styles.css"
-      ],
       "@language-masters/credit-card-payment-form": [
         "libs/credit-card-payment-form/src/index.ts"
+      ],
+      "@language-masters/design-system": ["libs/design-system/src/index.ts"],
+      "@language-masters/design-system-styles": [
+        "libs/design-system/src/styles.css"
       ]
     }
   },

@@ -6,6 +6,7 @@ interface TextInputProps {
   placeholder?: string
 }
 
+// This can be removed... I was testing it for hook-form.
 export const TextInput = ({
   inputId,
   labelText,
