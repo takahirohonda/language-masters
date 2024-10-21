@@ -8,23 +8,20 @@ import {
 } from './formValidation'
 export const creditCardPaymentFormValueSchema = z.object({
   name: z
-    .string({
-      required_error: 'This field is required',
-    })
+    .string()
+    .min(1, { message: 'Name is required' })
     .refine(isIdentityStringValid, {
       message: 'Card name is invalid',
     }),
   pan: z
-    .string({
-      required_error: 'This field is required',
-    })
+    .string()
+    .min(1, { message: 'Credit card number is required' })
     .refine(isValidCreditCardNumber, {
       message: 'Invalid credit card number',
     }),
   expiry: z
-    .string({
-      required_error: 'Expiry date is required',
-    })
+    .string()
+    .min(1, { message: 'Expiry date is required' })
     .refine(isValidCreditCardExpirationDate, {
       message: 'Expiry date is invalid',
     })
@@ -32,14 +29,17 @@ export const creditCardPaymentFormValueSchema = z.object({
       message: 'Expiry date is invalid',
     }),
   cvv: z
-    .string({
-      required_error: 'CVV is required',
-    })
+    // required_error doesn't work with zodResolver
+    // .string({
+    //   required_error: 'CVV is required',
+    // })
+    .string()
+    .min(1, { message: 'CVV is required' })
     .refine(isValidCVV, {
       message: 'CVV is invalid',
     }),
 })
 
-export type CreditCardPaymentFormValue = z.infer<
+export type CreditCardPaymentFormValues = z.infer<
   typeof creditCardPaymentFormValueSchema
 >
