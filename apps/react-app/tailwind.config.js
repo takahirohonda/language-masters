@@ -1,6 +1,9 @@
 const { createGlobPatternsForDependencies } = require('@nx/react/tailwind')
 const { join } = require('path')
-const { THEME } = require('../../libs/components/common/tailwind.config')
+const {
+  CONTAINER,
+  COLORS,
+} = require('../../libs/components/common/tailwind.config')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -11,6 +14,11 @@ module.exports = {
     ),
     ...createGlobPatternsForDependencies(__dirname),
   ],
-  theme: THEME,
+  theme: {
+    container: CONTAINER,
+    extend: {
+      colors: COLORS,
+    },
+  },
   plugins: [],
 }
