@@ -1,6 +1,6 @@
 const { createGlobPatternsForDependencies } = require('@nx/react/tailwind')
 const { join } = require('path')
-const { THEME } = require('../../../tailwind.config.common')
+const { THEME } = require('../../tailwind.config.common')
 
 /** @type {import('tailwindcss').Config} */
 const config = {

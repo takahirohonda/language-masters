@@ -2,7 +2,7 @@ import { SpeechButton } from '../SpeechButton'
 import TranslateIcon from '@mui/icons-material/Translate'
 import Tooltip from '@mui/material/Tooltip'
 
-interface ListItemProps {
+export interface ListItemProps {
   targetSentence: string
   translatedSentence: string
   listenButtonText: string
