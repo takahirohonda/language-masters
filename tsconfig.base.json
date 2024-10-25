@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "crypto": ["node_modules/crypto"],
       "@language-masters/component-sentences": [
         "libs/component-sentences/src/index.ts"
       ],
