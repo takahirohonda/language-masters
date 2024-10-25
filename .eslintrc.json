@@ -23,7 +23,8 @@
               }
             ]
           }
-        ]
+        ],
+        "my-custom-rules/react-hook-form-props-spreading": "error"
       }
     },
     {
