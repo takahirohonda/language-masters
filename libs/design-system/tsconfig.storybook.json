@@ -9,7 +9,7 @@
     "../../node_modules/@nx/react/typings/cssmodule.d.ts",
     "../../node_modules/@nx/react/typings/image.d.ts"
   ],
-  "paths": { "crypto": ["node_modules/crypto-browserify"] },
+  "paths": { "crypto": ["node_modules/crypto-es"] },
   "exclude": [
     "src/**/*.spec.ts",
     "src/**/*.test.ts",
