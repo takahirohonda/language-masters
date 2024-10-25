@@ -1,6 +1,7 @@
 import {
   CLERK_AUTH_TEST,
   PLAYGROUND_REST_API_SIGNIN,
+  PLAYGROUND_TEST_CANVAS,
   TEST_REACT_HOOK_FORM,
 } from '../../const/routes'
 import { Link } from '@mui/material'
@@ -18,6 +19,9 @@ export const NavBar = () => {
       </Link>
       <Link color="primary" href={TEST_REACT_HOOK_FORM}>
         Test hook-form
+      </Link>
+      <Link color="primary" href={PLAYGROUND_TEST_CANVAS}>
+        Test Canvas
       </Link>
     </div>
   )

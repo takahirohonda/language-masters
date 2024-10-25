@@ -3,6 +3,7 @@ import { SignIn as RestApiSignInTest } from './pages/Playground/RestApi/TestJwtA
 import {
   CLERK_AUTH_TEST,
   PLAYGROUND_REST_API_SIGNIN,
+  PLAYGROUND_TEST_CANVAS,
   SIGN_IN,
   TEST_REACT_HOOK_FORM,
 } from './const/routes'
@@ -12,6 +13,7 @@ import { Home } from './pages/Home/Home'
 import { ClerkTest } from './pages/ClerkTest/ClerkTest'
 import { SignIn } from './pages/SignIn/SignIn'
 import { TestReactHookForm } from './pages/Playground/TestReactHookForm/TestReactHookForm'
+import { TestCanvasPage } from './pages/Playground/TestCanvas/TestCanvasPage'
 
 export const AppRoutes = () => {
   return (
@@ -24,6 +26,7 @@ export const AppRoutes = () => {
           path={PLAYGROUND_REST_API_SIGNIN}
           element={<RestApiSignInTest />}
         />
+        <Route path={PLAYGROUND_TEST_CANVAS} element={<TestCanvasPage />} />
         <Route path={TEST_REACT_HOOK_FORM} element={<TestReactHookForm />} />
       </Route>
     </Routes>
