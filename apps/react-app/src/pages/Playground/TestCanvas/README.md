@@ -17,6 +17,8 @@ Going through Mdn Tutorial
 
 ```tsx
 export const TestCanvas = ({ width, height }: TestCanvasProps) => {
+  // https://react.dev/reference/react/useRef#manipulating-the-dom-with-a-ref
+  // Example of manipulating the DOM with ref.
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {

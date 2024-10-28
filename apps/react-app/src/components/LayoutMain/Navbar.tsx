@@ -2,6 +2,7 @@ import {
   CLERK_AUTH_TEST,
   PLAYGROUND_REST_API_SIGNIN,
   PLAYGROUND_TEST_CANVAS,
+  PLAYGROUND_TEST_MEDIA_RECORDER,
   TEST_REACT_HOOK_FORM,
 } from '../../const/routes'
 import { Link } from '@mui/material'
@@ -22,6 +23,9 @@ export const NavBar = () => {
       </Link>
       <Link color="primary" href={PLAYGROUND_TEST_CANVAS}>
         Test Canvas
+      </Link>
+      <Link color="primary" href={PLAYGROUND_TEST_MEDIA_RECORDER}>
+        Test Media Recorder
       </Link>
     </div>
   )
