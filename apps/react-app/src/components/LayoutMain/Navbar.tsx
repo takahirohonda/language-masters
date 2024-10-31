@@ -1,5 +1,6 @@
 import {
   CLERK_AUTH_TEST,
+  PLAYGROUND_HIP_HOP_SAMPLER,
   PLAYGROUND_REST_API_SIGNIN,
   PLAYGROUND_TEST_CANVAS,
   PLAYGROUND_TEST_MEDIA_RECORDER,
@@ -26,6 +27,9 @@ export const NavBar = () => {
       </Link>
       <Link color="primary" href={PLAYGROUND_TEST_MEDIA_RECORDER}>
         Test Media Recorder
+      </Link>
+      <Link color="primary" href={PLAYGROUND_HIP_HOP_SAMPLER}>
+        Hip Hop Sampler
       </Link>
     </div>
   )
