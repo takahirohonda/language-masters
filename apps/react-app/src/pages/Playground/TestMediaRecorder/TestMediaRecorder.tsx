@@ -1,4 +1,4 @@
-import { Button } from '@mui/material'
+import { Button, Typography } from '@mui/material'
 import clsx from 'clsx'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
@@ -97,33 +97,36 @@ export const TestMediaRecorder = () => {
 
   return (
     <div className="flex flex-col gap-[24px]">
-      <div className="flex gap=[16px]">
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={handleRecord}
-          disabled={mediaRecorderState === 'recording'}
-        >
-          {mediaRecorderState === 'paused' ? <p>Resume</p> : <p>Record</p>}
-        </Button>
-        <Button variant="contained" color="error" onClick={handleStop}>
-          Stop
-        </Button>
-        <Button variant="contained" color="warning" onClick={handlePause}>
-          Pause
-        </Button>
-      </div>
-      <div>
-        {mediaRecorderState && (
-          <p>Current recording state is: {mediaRecorderState}</p>
-        )}
-      </div>
-      <div>
-        <audio
-          controls
-          ref={audioRef}
-          className={clsx(`${isAudioReady ? 'visible' : 'hidden'}`)}
-        />
+      <Typography variant="h4">Test Media Recorder</Typography>
+      <div className="flex flex-col gap-[24px]">
+        <div className="flex gap-[16px]">
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleRecord}
+            disabled={mediaRecorderState === 'recording'}
+          >
+            {mediaRecorderState === 'paused' ? <p>Resume</p> : <p>Record</p>}
+          </Button>
+          <Button variant="contained" color="error" onClick={handleStop}>
+            Stop
+          </Button>
+          <Button variant="contained" color="warning" onClick={handlePause}>
+            Pause
+          </Button>
+        </div>
+        <div>
+          {mediaRecorderState && (
+            <p>Current recording state is: {mediaRecorderState}</p>
+          )}
+        </div>
+        <div>
+          <audio
+            controls
+            ref={audioRef}
+            className={clsx(`${isAudioReady ? 'visible' : 'hidden'}`)}
+          />
+        </div>
       </div>
     </div>
   )

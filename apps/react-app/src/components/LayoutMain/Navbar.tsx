@@ -9,7 +9,7 @@ import {
 import { Link } from '@mui/material'
 export const NavBar = () => {
   return (
-    <div className="flex gap-[16px] text-[18px]">
+    <div className="flex gap-[16px] text-[18px] h-[42px] items-center mb-[16px]">
       <Link color="primary" href="/">
         Home
       </Link>
