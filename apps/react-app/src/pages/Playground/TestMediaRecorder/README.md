@@ -55,7 +55,7 @@ navigator.mediaDevices
   })
 ```
 
-### Using the recorded data
+### 4. Using the recorded data
 
 The recording is captured as [Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob). `new Blob(arrayObj)` will create a blob containing a concatenation of all of the data in the array.
 
@@ -108,3 +108,7 @@ mediaRecorder.onstop = () => {
   });
 };
 ```
+
+### 5. In React
+
+Using `mediaRecorder.onStop()` with recorded data in the local state doesn't work because the data becomes out of sync (see ![this](./TestMediaRecorder__onStop_doesNotWork.tsx)).

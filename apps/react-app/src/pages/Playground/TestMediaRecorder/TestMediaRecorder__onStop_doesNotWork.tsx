@@ -36,24 +36,19 @@ export const TestMediaRecorder = () => {
       setIsAudioReady(false)
       mediaRecorder.start()
       mediaRecorder.ondataavailable = (e) => {
-        const recordedChunks = []
         if (e.data.size > 0) {
-          recordedChunks.push(e.data)
-          console.log(`checking the recoded chunks: ${recordedChunks}`)
-          const audioBlob = new Blob(recordedChunks, {
-            type: mediaRecorder.mimeType,
+          setRecordedChunks((prev) => {
+            const updatedChunks = [...prev, e.data]
+            console.log(`Updated recorded chunks:`, updatedChunks)
+            return updatedChunks
           })
-          console.log(`checking audioBlob: ${audioBlob}`)
-          const audioSourceURL = URL.createObjectURL(audioBlob)
-          if (audioRef.current) {
-            console.log(`checking audioSourceUrl: ${audioSourceURL}`)
-            audioRef.current.src = audioSourceURL
-            audioRef.current.load()
-          }
-          setIsAudioReady(true)
+          console.log(`checking the recorder data size: ${e.data.size}`)
+          console.log(`checking the recorder data type: ${typeof e.data}`)
+          console.log(`checking the recoded chunks: ${recordedChunks}`)
         }
       }
       setMediaRecorderState('recording')
+
       return
     }
 
@@ -66,7 +61,7 @@ export const TestMediaRecorder = () => {
     if (mediaRecorderState === 'recording') {
       return
     }
-  }, [mediaRecorder, mediaRecorderState])
+  }, [mediaRecorder, mediaRecorderState, recordedChunks])
 
   const handleStop = useCallback(() => {
     if (!mediaRecorder) {
@@ -78,22 +73,36 @@ export const TestMediaRecorder = () => {
     mediaRecorder.stop()
 
     mediaRecorder.onstop = () => {
+      const mimeType = mediaRecorder.mimeType
+      console.log(mimeType)
+      // Create a Blob only after stopping the recording and finalizing all chunks
+      console.log(`checking recordedChunks size: ${recordedChunks.length}`)
+      const audioBlob = new Blob(recordedChunks, { type: mimeType })
+      console.log(`checking audioBlob: ${audioBlob}`)
+      const audioSourceURL = URL.createObjectURL(audioBlob)
+      if (audioRef.current) {
+        console.log(`checking audioSourceUrl: ${audioSourceURL}`)
+        // const link = document.createElement('a')
+        // link.href = audioSourceURL
+        // link.download = 'recording.wav'
+        // link.click()
+        audioRef.current.src = audioSourceURL
+        // audioRef.current.currentTime = 0
+        audioRef.current.load()
+      }
       setIsAudioReady(true)
       setRecordedChunks([])
     }
-  }, [mediaRecorder])
+  }, [mediaRecorder, recordedChunks])
 
   const handlePause = useCallback(() => {
     if (!mediaRecorder) {
       console.error('MediaRecorder is not initialized')
       return
     }
-    if (['paused', 'inactive'].includes(mediaRecorderState)) {
-      return
-    }
     mediaRecorder.pause()
     setMediaRecorderState('paused')
-  }, [mediaRecorder, mediaRecorderState])
+  }, [mediaRecorder])
 
   return (
     <div className="flex flex-col gap-[24px]">
