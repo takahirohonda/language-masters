@@ -9,6 +9,18 @@ yarn nx dev react-app
 yarn nx dev next-app
 ```
 
+## 2. Get affected projects
+
+```bash
+yarn nx affected --target=build --base=origin/main --head=HEAD --graph
+# just show affected projects
+yarn nx show projects --affected
+# Show Only apps
+yarn nx show projects --affected --type app
+# Can exclude end to end
+nx show projects --affected --exclude=*-e2e
+```
+
 ## REFERENCE
 
 1. Creating projects
@@ -192,7 +204,7 @@ Output from `auth()`
 
 # Test with Jest and react-testing-lib
 
-## (1) TypeError: expect(...).toBeVisible is not a function 
+## (1) TypeError: expect(...).toBeVisible is not a function
 
 This is caused by missing @testing-library/jest-dom.
 
@@ -224,3 +236,4 @@ Add this line in `tsconfig.spec.json`
     ]
 }
 
+```
