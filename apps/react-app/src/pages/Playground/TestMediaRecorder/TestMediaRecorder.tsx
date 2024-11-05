@@ -112,7 +112,7 @@ export const TestMediaRecorder = () => {
             Stop
           </Button>
           <Button variant="contained" color="warning" onClick={handlePause}>
-            Pause
+            Pause...
           </Button>
         </div>
         <div>
