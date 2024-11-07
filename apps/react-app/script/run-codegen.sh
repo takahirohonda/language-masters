@@ -1,6 +1,5 @@
 # echo "🔑 API Authenticaton ..."
-# echo "Please provide your accessToken from generateShopToken mutation."
-# read -p "Shop Token: " accessToken
+# echo "Please provide your accessToken"
 # export API_TOKEN=$accessToken
 
 echo ""
