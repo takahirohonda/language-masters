@@ -23,17 +23,19 @@ jobs:
         run: |
           yarn install
       - name: Detect affected projects
-        id: affected
+        id: affected_apps_step
         run: |
           set -x
           AFFECTED=$(yarn nx show projects --affected --type app --base=origin/main --head=HEAD)
           if [ -z "$AFFECTED" ]; then
             echo "No affected apps found."
           else
-            echo "affected_apps=$AFFECTED"
-            echo "::set-output name=affected_apps::$AFFECTED"
+            echo "Affected apps are: $AFFECTED"
+            echo "{affected_apps}={$AFFECTED}" >> $GITHUB_OUTPUT
           fi
-
+      - name: Checking output from affected app step
+        run: |
+          echo "Affected apps are: ${{ steps.affected_apps_step.outputs.affected_apps }}"
       - name: Build and Deploy react-app if affected
         if: ${{ contains(steps.affected_apps_step.outputs.affected_apps, 'react-app') }}
         run: |
