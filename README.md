@@ -16,7 +16,7 @@ yarn nx affected --target=build --base=origin/main --head=HEAD --graph
 # just show affected projects
 yarn nx show projects --affected
 # Show Only apps
-yarn nx show projects --affected --type app
+yarn nx show projects --affected --type app --base=origin/main --head=HEAD
 # Can exclude end to end
 nx show projects --affected --exclude=*-e2e
 ```

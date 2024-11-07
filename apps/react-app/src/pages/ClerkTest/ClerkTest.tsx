@@ -23,7 +23,7 @@ export const ClerkTest = () => {
         <UserButton />
         <SignOutButton />
       </SignedIn>
-      {loggedInUser && <p>Logged in user: {JSON.stringify(loggedInUser)}</p>}
+      {loggedInUser && <p>Logged-in user: {JSON.stringify(loggedInUser)}</p>}
     </>
   )
 }
