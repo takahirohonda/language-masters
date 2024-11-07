@@ -17,7 +17,7 @@ yarn nx affected --target=build --base=origin/main --head=HEAD --graph
 yarn nx show projects --affected
 # Show Only apps
 yarn nx show projects --affected --type app
-# There is an option to pass bass and head...
+# There is an option to pass bass and head... I think without passing options would work, too.
 yarn nx show projects --affected --type app --base=origin/main --head=HEAD
 # Can exclude end to end
 nx show projects --affected --exclude=*-e2e

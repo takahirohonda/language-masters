@@ -29,19 +29,19 @@ jobs:
           AFFECTED=$(yarn nx show projects --affected --type app)
           if [ -z "$AFFECTED" ]; then
             echo "No affected apps found."
-            echo "affected_apps=" >> $GITHUB_ENV
           else
-            echo "affected_apps=$AFFECTED" >> $GITHUB_ENV
+            echo "affected_apps=$AFFECTED"
+            echo "::set-output name=affected_apps::$AFFECTED"
           fi
 
       - name: Build and Deploy react-app if affected
-        if: contains(env.affected_apps, 'reat-app')
+        if: ${{ contains(steps.affected_apps_step.outputs.affected_apps, 'react-app') }}
         run: |
           echo "Deploying affected project: $AFFECTED"
           yarn nx build-ci react-app
       - name: Deploy to Github page
         uses: JamesIves/github-pages-deploy-action@3.7.1
-        if: contains(env.affected_apps, 'react-app')
+        if: ${{ contains(steps.affected_apps_step.outputs.affected_apps, 'react-app') }}
         with:
           ACCESS_TOKEN: ${{ secrets.LANGUAGE_MASTERS_DEPLOY  }}
           BRANCH: master # The branch the action should deploy to.
