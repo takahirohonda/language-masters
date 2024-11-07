@@ -25,8 +25,14 @@ jobs:
       - name: Detect affected projects
         id: affected
         run: |
-          AFFECTED=$(yarn nx affected:apps --base=origin/main --head=HEAD)
-          echo "affected_apps=$AFFECTED" >> $GITHUB_ENV
+          set -x
+          AFFECTED=$(npx nx affected:apps --base=origin/main --head=HEAD)
+          if [ -z "$AFFECTED" ]; then
+            echo "No affected apps found."
+            echo "affected_apps=" >> $GITHUB_ENV
+          else
+            echo "affected_apps=$AFFECTED" >> $GITHUB_ENV
+          fi
 
       - name: Build and Deploy react-app if affected
         if: contains(env.affected_apps, 'reat-app')
