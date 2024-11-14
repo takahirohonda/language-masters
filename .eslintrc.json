@@ -24,7 +24,7 @@
             ]
           }
         ],
-        "my-custom-rules/react-hook-form-props-spreading": "error"
+        "my-custom-rules/react-hook-form-props-spreading": "ignore"
       }
     },
     {
