@@ -23,7 +23,7 @@ Failed to resolve entry for package "crypto". The package may have incorrect mai
 
 **Resolution**
 
-We shouldn't use crypto package from npm because it's deprecated (https://www.npmjs.com/package/crypto). Vite uses build-in crypto module from Node.js.
+We shouldn't use crypto package from npm because it's deprecated (https://www.npmjs.com/package/crypto). Vite uses build-in crypto module from Node.js. `crypto` as introduces when I was mucking around with Drizzle (see details in this PR https://github.com/takahirohonda/language-masters/pull/2).
 
 See https://github.com/vitejs/vite/issues/12602.
 
