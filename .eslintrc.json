@@ -1,7 +1,7 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
-  "plugins": ["@nx", "my-custom-rules"],
+  "plugins": ["@nx"],
   "overrides": [
     {
       "files": "*.json",
@@ -23,8 +23,7 @@
               }
             ]
           }
-        ],
-        "my-custom-rules/react-hook-form-props-spreading": "ignore"
+        ]
       }
     },
     {

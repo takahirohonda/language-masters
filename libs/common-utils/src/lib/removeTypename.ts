@@ -16,6 +16,7 @@ export const removeTypename = <T>(input: T): RecursiveOmitTypename<T> => {
   }
 
   if (input && typeof input === 'object') {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
     const { __typename, ...rest } = input as any
     return Object.fromEntries(
       Object.entries(rest).map(([key, value]) => [key, removeTypename(value)])
