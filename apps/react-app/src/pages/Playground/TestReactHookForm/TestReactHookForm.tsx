@@ -59,7 +59,7 @@ export const TestReactHookForm = () => {
           helperText={errors.title?.message}
           fullWidth
           {...register('title')}
-        ></TextField>
+        />
         <Button type="submit" variant="contained">
           Submit
         </Button>
