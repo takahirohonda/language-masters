@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 import { SignIn as RestApiSignInTest } from './pages/Playground/RestApi/TestJwtAuth/SignIn'
 import {
   CLERK_AUTH_TEST,
+  CREDIT_CARD_PAYMENT_FORM_TEST,
   PLAYGROUND_HIP_HOP_SAMPLER,
   PLAYGROUND_REST_API_SIGNIN,
   PLAYGROUND_TEST_CANVAS,
@@ -18,6 +19,7 @@ import { TestReactHookForm } from './pages/Playground/TestReactHookForm/TestReac
 import { TestCanvasPage } from './pages/Playground/TestCanvas/TestCanvasPage'
 import { TestMediaRecorder } from './pages/Playground/TestMediaRecorder/TestMediaRecorder'
 import { HipHopSampler } from './pages/Playground/HipHopSampler/HipHopSampler'
+import { CreditCardPaymentFormTest } from './pages/Playground/CreditCardPaymentFormTest/CreditCardPaymentFormTest'
 
 export const AppRoutes = () => {
   return (
@@ -36,6 +38,10 @@ export const AppRoutes = () => {
           element={<TestMediaRecorder />}
         />
         <Route path={TEST_REACT_HOOK_FORM} element={<TestReactHookForm />} />
+        <Route
+          path={CREDIT_CARD_PAYMENT_FORM_TEST}
+          element={<CreditCardPaymentFormTest />}
+        />
         <Route path={PLAYGROUND_HIP_HOP_SAMPLER} element={<HipHopSampler />} />
       </Route>
     </Routes>

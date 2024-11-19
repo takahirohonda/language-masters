@@ -1,5 +1,6 @@
 import {
   CLERK_AUTH_TEST,
+  CREDIT_CARD_PAYMENT_FORM_TEST,
   PLAYGROUND_HIP_HOP_SAMPLER,
   PLAYGROUND_REST_API_SIGNIN,
   PLAYGROUND_TEST_CANVAS,
@@ -18,6 +19,9 @@ export const NavBar = () => {
       </Link>
       <Link color="primary" href={CLERK_AUTH_TEST}>
         Test Clerk
+      </Link>
+      <Link color="primary" href={CREDIT_CARD_PAYMENT_FORM_TEST}>
+        CC Payment Form
       </Link>
       <Link color="primary" href={TEST_REACT_HOOK_FORM}>
         Test hook-form

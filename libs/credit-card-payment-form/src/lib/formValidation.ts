@@ -1,4 +1,3 @@
-// These validators need to be split into NX module in the future
 export const isValidMonth = (value: string) => {
   const month = Number(value)
   return Number.isInteger(month) && month >= 1 && month <= 12
