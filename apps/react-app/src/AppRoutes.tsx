@@ -19,7 +19,7 @@ import { TestReactHookForm } from './pages/Playground/TestReactHookForm/TestReac
 import { TestCanvasPage } from './pages/Playground/TestCanvas/TestCanvasPage'
 import { TestMediaRecorder } from './pages/Playground/TestMediaRecorder/TestMediaRecorder'
 import { HipHopSampler } from './pages/Playground/HipHopSampler/HipHopSampler'
-import { CreditCardPaymentFormTest } from './pages/Playground/CreditCardPaymentFormTest/CreditCardPayamentFormTest'
+import { CreditCardPaymentFormTest } from './pages/Playground/CreditCardPaymentFormTest/CreditCardPaymentFormTest'
 
 export const AppRoutes = () => {
   return (

@@ -5,7 +5,7 @@ import {
 import { simulateAjaxCall } from '../../../utils/Tools/simulateAjaxCall'
 import { useCallback } from 'react'
 
-export const CreditCardPaymentFormContent = () => {
+export const CreditCardPaymentFormTest = () => {
   const submitHandler = useCallback(
     async (values: CreditCardPaymentFormValues) => {
       await simulateAjaxCall({ data: values })

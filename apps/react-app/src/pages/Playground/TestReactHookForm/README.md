@@ -32,3 +32,30 @@ export function App() {
 [Chakra UI](https://www.chakra-ui.com/docs/components/select)
 
 Both sees to take compositional approaches -e.g. not passing label prop or content prop. Instead composing by using label or item components.
+
+## Some tips
+
+We can spread with register function.
+
+```ts
+const { onChange, onBlur, name, ref } = register('firstName');
+// include type check against field path with the name you have supplied.
+
+<input
+  onChange={onChange} // assign onChange event
+  onBlur={onBlur} // assign onBlur event
+  name={name} // assign name prop
+  ref={ref} // assign ref prop
+/>
+// same as above
+<input {...register('firstName')} />
+```
+
+Overriding onChange or onBlur
+
+```ts
+register('firstName', {
+  onChange: (e) => console.log(e),
+  onBlur: (e) => console.log(e),
+})
+```
