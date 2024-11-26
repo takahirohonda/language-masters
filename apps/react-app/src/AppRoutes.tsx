@@ -2,7 +2,8 @@ import { Route, Routes } from 'react-router-dom'
 import { SignIn as RestApiSignInTest } from './pages/Playground/RestApi/TestJwtAuth/SignIn'
 import {
   CLERK_AUTH_TEST,
-  CREDIT_CARD_PAYMENT_FORM_TEST,
+  CREDIT_CARD_PAYMENT_HOOK_FORM,
+  CREDIT_CARD_PAYMENT_TANSTACK_FORM,
   PLAYGROUND_HIP_HOP_SAMPLER,
   PLAYGROUND_REST_API_SIGNIN,
   PLAYGROUND_TEST_CANVAS,
@@ -19,7 +20,8 @@ import { TestReactHookForm } from './pages/Playground/TestReactHookForm/TestReac
 import { TestCanvasPage } from './pages/Playground/TestCanvas/TestCanvasPage'
 import { TestMediaRecorder } from './pages/Playground/TestMediaRecorder/TestMediaRecorder'
 import { HipHopSampler } from './pages/Playground/HipHopSampler/HipHopSampler'
-import { CreditCardPaymentFormTest } from './pages/Playground/CreditCardPaymentFormTest/CreditCardPaymentFormTest'
+import { CreditCardPaymentHookForm } from './pages/Playground/CreditCardPaymentHookForm/CreditCardPaymentHookForm'
+import { CreditCardPaymentFormTanStack } from './pages/Playground/CreditCardPaymentTanStackForm/CreditCardPaymentFormTanStack'
 
 export const AppRoutes = () => {
   return (
@@ -39,8 +41,12 @@ export const AppRoutes = () => {
         />
         <Route path={TEST_REACT_HOOK_FORM} element={<TestReactHookForm />} />
         <Route
-          path={CREDIT_CARD_PAYMENT_FORM_TEST}
-          element={<CreditCardPaymentFormTest />}
+          path={CREDIT_CARD_PAYMENT_HOOK_FORM}
+          element={<CreditCardPaymentHookForm />}
+        />
+        <Route
+          path={CREDIT_CARD_PAYMENT_TANSTACK_FORM}
+          element={<CreditCardPaymentFormTanStack />}
         />
         <Route path={PLAYGROUND_HIP_HOP_SAMPLER} element={<HipHopSampler />} />
       </Route>
