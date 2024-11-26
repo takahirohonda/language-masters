@@ -60,9 +60,23 @@ export const CreditCardPaymentFormTanStack = () => {
               <CvvInput form={form} />
             </div>
           </div>
-          <Button type="submit" variant="contained" size="large">
-            Pay Now
-          </Button>
+          <form.Subscribe
+            selector={(state) => [
+              state.canSubmit,
+              state.isSubmitting,
+              state.isPristine,
+            ]}
+            children={([canSubmit, isSubmitting, isPristine]) => (
+              <Button
+                type="submit"
+                variant="contained"
+                size="large"
+                disabled={!canSubmit || isPristine}
+              >
+                {isSubmitting ? 'Processing' : 'Pay Now'}
+              </Button>
+            )}
+          />
         </form>
       </div>
     </div>
