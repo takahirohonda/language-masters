@@ -17,10 +17,11 @@ export const ExpiryDateInput = ({ form }: CommonPropsTypeForCCFormInput) => {
             placeholder="MM/YY"
             value={field.state.value}
             error={hasError}
-            helperText={hasError && field.state.meta.errors.join(', ')}
+            helperText={hasError && field.state.meta.errors[0]}
             onChange={(e) => {
               field.handleChange(formatExpirationDate(e.target.value))
             }}
+            onBlur={field.handleBlur}
             fullWidth
           />
         )

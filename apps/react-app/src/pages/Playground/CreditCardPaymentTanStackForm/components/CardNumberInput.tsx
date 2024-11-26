@@ -16,10 +16,11 @@ export const CardNumberInput = ({ form }: CommonPropsTypeForCCFormInput) => {
             variant="outlined"
             value={field.state.value}
             error={hasError}
-            helperText={hasError && field.state.meta.errors.join(', ')}
+            helperText={hasError && field.state.meta.errors[0]}
             onChange={(e) => {
               field.handleChange(formatCreditCardNumber(e.target.value))
             }}
+            onBlur={field.handleBlur}
             fullWidth
           />
         )

@@ -29,6 +29,7 @@ export const CreditCardPaymentFormTanStack = () => {
     validatorAdapter: zodValidator(),
     validators: {
       onChange: creditCardPaymentFormValueSchema,
+      // onBlur: creditCardPaymentFormValueSchema,
     },
   })
   return (

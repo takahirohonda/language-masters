@@ -4,6 +4,7 @@ import {
 } from '@language-masters/credit-card-payment-form'
 import { simulateAjaxCall } from '../../../utils/Tools/simulateAjaxCall'
 import { useCallback } from 'react'
+import { Typography } from '@mui/material'
 
 export const CreditCardPaymentHookForm = () => {
   const submitHandler = useCallback(
@@ -15,8 +16,13 @@ export const CreditCardPaymentHookForm = () => {
   )
 
   return (
-    <div>
-      <CreditCardPaymentForm handleOnSubmit={submitHandler} />
+    <div className="flex flex-col mt-[80px] gap-[24px] justify-center ">
+      <div className="flex flex-col">
+        <Typography variant="h4" component="h2">
+          Hook Form Example
+        </Typography>
+        <CreditCardPaymentForm handleOnSubmit={submitHandler} />
+      </div>
     </div>
   )
 }

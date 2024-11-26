@@ -26,7 +26,7 @@ export const creditCardPaymentFormValueSchema = z.object({
       message: 'Expiry date is invalid',
     })
     .refine((value) => !isPastDate(value), {
-      message: 'Expiry date is invalid',
+      message: 'Expiry date cannot be in the past',
     }),
   cvv: z
     // required_error doesn't work with zodResolver
