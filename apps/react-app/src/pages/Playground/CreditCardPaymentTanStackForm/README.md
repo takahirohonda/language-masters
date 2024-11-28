@@ -8,6 +8,47 @@ Installing tanstack form with Zod adapter.
 yarn add @tanstack/react-form @tanstack/zod-form-adapter
 ```
 
+## In progress to do...
+
+We can use a plugin system and flatten the form... `pluginExpirationDate` will have the input formatter. Return onChange and it will override onChange from bindField function.
+
+```tsx
+<form.Field
+  ...
+  children={(field) => (
+    <TextField
+      {...bindField(field)}
+      {...pluginExpirationDate(field)}
+    >
+  )}
+>
+```
+
+```tsx
+import type { FieldApi } from '@tanstack/react-form'
+
+export function bindField<
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  TField extends FieldApi<any, any, any, any, any>,
+>(
+  field: TField
+): {
+  name: TField['name']
+  value: TField['state']['value']
+  onChangeValue: TField['handleChange']
+  onBlur: () => void
+  error: string
+} {
+  return {
+    name: field.name,
+    value: field.state.value,
+    onChangeValue: field.handleChange,
+    onBlur: field.handleBlur,
+    error: field.state.meta.errors[0],
+  }
+}
+```
+
 ## Concepts
 
 https://tanstack.com/form/latest/docs/framework/react/guides/basic-concepts
