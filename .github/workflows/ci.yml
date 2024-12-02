@@ -22,24 +22,23 @@ jobs:
       - name: Install
         run: |
           yarn install
-      - name: Detect affected projects
-        id: affected_apps_step
+
+      - name: Build and Deploy (Voice Recorder)
         run: |
-          set -x
-          AFFECTED=$(yarn nx show projects --affected --type app --base=origin/main --head=HEAD)
-          if [ -z "$AFFECTED" ]; then
-            echo "No affected apps found."
-          else
-            echo "Affected apps are: $AFFECTED"
-            echo "{affected_apps}={$AFFECTED}" >> $GITHUB_OUTPUT
-          fi
-      - name: Checking output from affected app step
-        run: |
-          echo "Affected apps are: ${{ steps.affected_apps_step.outputs.affected_apps }}"
-      - name: Build and Deploy react-app if affected
+          yarn nx build-ci react-app
+      - name: Deploy to Github page (Voice Recorder)
+        uses: JamesIves/github-pages-deploy-action@3.7.1
         if: ${{ contains(steps.affected_apps_step.outputs.affected_apps, 'react-app') }}
+        with:
+          ACCESS_TOKEN: ${{ secrets.LANGUAGE_MASTERS_DEPLOY  }}
+          BRANCH: master # The branch the action should deploy to.
+          FOLDER: dist/apps/voice-recorder # The folder the action should deploy.
+          REPOSITORY_NAME: takahirohonda/takahirohonda.github.io
+          TARGET_FOLDER: voice-recorder
+          CLEAN: true # Automatically remove deleted files from the deploy branch
+
+      - name: Build and Deploy React App
         run: |
-          echo "Deploying affected project: $AFFECTED"
           yarn nx build-ci react-app
       - name: Deploy to Github page
         uses: JamesIves/github-pages-deploy-action@3.7.1
