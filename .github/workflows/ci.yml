@@ -28,7 +28,6 @@ jobs:
           yarn nx build react-voice-recorder
       - name: Deploy to Github page (Voice Recorder)
         uses: JamesIves/github-pages-deploy-action@3.7.1
-        if: ${{ contains(steps.affected_apps_step.outputs.affected_apps, 'react-app') }}
         with:
           ACCESS_TOKEN: ${{ secrets.LANGUAGE_MASTERS_DEPLOY  }}
           BRANCH: master # The branch the action should deploy to.
@@ -42,7 +41,6 @@ jobs:
           yarn nx build react-app
       - name: Deploy to Github page (React App)
         uses: JamesIves/github-pages-deploy-action@3.7.1
-        if: ${{ contains(steps.affected_apps_step.outputs.affected_apps, 'react-app') }}
         with:
           ACCESS_TOKEN: ${{ secrets.LANGUAGE_MASTERS_DEPLOY  }}
           BRANCH: master # The branch the action should deploy to.
