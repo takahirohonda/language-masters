@@ -25,7 +25,7 @@ jobs:
 
       - name: Build and Deploy (Voice Recorder)
         run: |
-          yarn nx build-ci react-app
+          yarn nx build react-voice-recorder
       - name: Deploy to Github page (Voice Recorder)
         uses: JamesIves/github-pages-deploy-action@3.7.1
         if: ${{ contains(steps.affected_apps_step.outputs.affected_apps, 'react-app') }}
@@ -37,10 +37,10 @@ jobs:
           TARGET_FOLDER: voice-recorder
           CLEAN: true # Automatically remove deleted files from the deploy branch
 
-      - name: Build and Deploy React App
+      - name: Build and Deploy (React App)
         run: |
-          yarn nx build-ci react-app
-      - name: Deploy to Github page
+          yarn nx build react-app
+      - name: Deploy to Github page (React App)
         uses: JamesIves/github-pages-deploy-action@3.7.1
         if: ${{ contains(steps.affected_apps_step.outputs.affected_apps, 'react-app') }}
         with:
