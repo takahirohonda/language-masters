@@ -44,7 +44,7 @@ jobs:
         with:
           ACCESS_TOKEN: ${{ secrets.LANGUAGE_MASTERS_DEPLOY  }}
           BRANCH: master # The branch the action should deploy to.
-          FOLDER: dist/apps/react-app # The folder the action should deploy.
+          FOLDER: dist/apps/react-voice-recorder # The folder the action should deploy.
           REPOSITORY_NAME: takahirohonda/takahirohonda.github.io
           TARGET_FOLDER: language-masters-react
           CLEAN: true # Automatically remove deleted files from the deploy branch
