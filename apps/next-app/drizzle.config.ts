@@ -1,6 +1,5 @@
 require('dotenv').config({ path: 'apps/next-app/.env' })
 import { defineConfig } from 'drizzle-kit'
-import * as path from 'path'
 
 export default defineConfig({
   dialect: 'postgresql',
