@@ -8,7 +8,9 @@ import { Layout } from './Layout/Layout'
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter
+      basename={import.meta.env.MODE === 'development' ? '/' : 'voice-recorder'}
+    >
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<VoiceRecorder />} />
