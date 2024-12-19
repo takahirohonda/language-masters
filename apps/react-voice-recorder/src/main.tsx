@@ -9,7 +9,9 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <StrictMode>
     <BrowserRouter
-      basename={import.meta.env.MODE === 'development' ? '/' : 'voice-recorder'}
+      basename={
+        import.meta.env.MODE === 'development' ? '/' : '/voice-recorder'
+      }
     >
       <Routes>
         <Route element={<Layout />}>
