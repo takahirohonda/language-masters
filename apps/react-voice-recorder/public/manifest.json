@@ -1,6 +1,6 @@
 {
   "name": "Voice Recorder App",
-  "short_name": "LGA",
+  "short_name": "VRA",
   "icons": [
     {
       "src": "favicon/android-icon-36x36.png",
@@ -39,7 +39,7 @@
       "density": "4.0"
     }
   ],
-  "start_url": "/voice-recorder/index.html",
+  "start_url": "/voice-recorder",
   "scope": ".",
   "display": "standalone",
   "orientation": "portrait",
