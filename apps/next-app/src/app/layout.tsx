@@ -17,20 +17,21 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className="bg-primary-black h-screen">
-          <div className="container h-full flex flex-col px-[16px]">
-            <Header />
-            <main
-              className={clsx(`
-            flex
-            flex-col
-            items-center
-            justify-center
-            grow
-          `)}
-            >
-              {children}
-            </main>
+        <body className="bg-primary-black text-white">
+          <div className="min-h-screen">
+            <div className="container h-screen flex flex-col items-center px-[16px]">
+              <Header />
+              <main
+                className={clsx(`
+                  flex
+                  flex-col
+                  justify-center
+                  h-full
+                `)}
+              >
+                {children}
+              </main>
+            </div>
           </div>
         </body>
       </html>
