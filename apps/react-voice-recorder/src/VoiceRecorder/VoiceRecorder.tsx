@@ -96,7 +96,7 @@ export const VoiceRecorder = () => {
   }, [mediaRecorder, mediaRecorderState])
 
   return (
-    <div className="flex flex-col gap-[24px]">
+    <div className="flex flex-col gap-[24px] m-[16px] items-center">
       <Typography variant="h4">Voice Recorder</Typography>
       <div className="flex flex-col gap-[24px]">
         <div className="flex gap-[16px]">

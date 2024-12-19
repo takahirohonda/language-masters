@@ -6,6 +6,7 @@ on:
 jobs:
   run-test-deploy:
     runs-on: ubuntu-latest
+    environment: dev # This is the environment the action will run in. and I set clerk key to this environment
     strategy:
       matrix:
         os: [ubuntu-latest]
@@ -37,6 +38,8 @@ jobs:
           CLEAN: true # Automatically remove deleted files from the deploy branch
 
       - name: Build and Deploy (React App)
+        env:
+          VITE_CLERK_PUBLISHABLE_KEY: ${{ secrets.VITE_CLERK_PUBLISHABLE_KEY }}
         run: |
           yarn nx build react-app
       - name: Deploy to Github page (React App)
