@@ -12,7 +12,7 @@ const NewUser = async () => {
     return
   }
 
-  const { firstName, lastName, emailAddresses, imageUrl } = user
+  const { firstName, lastName, emailAddresses, imageUrl, username } = user
   const email = emailAddresses?.[0].emailAddress
 
   console.log(`checking user from currentUser: ${email}`)
@@ -25,10 +25,11 @@ const NewUser = async () => {
     redirect(LOGGED_IN_USER_LANDING_PAGE)
   } else {
     const createUserOutcome = await createUser({
-      firstName: firstName || '',
-      lastName: lastName || '',
       email,
+      firstName,
+      lastName,
       imageUrl,
+      username,
     })
 
     console.log(
