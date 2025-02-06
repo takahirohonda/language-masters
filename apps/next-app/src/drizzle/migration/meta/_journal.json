@@ -8,6 +8,13 @@
       "when": 1738809636800,
       "tag": "0000_groovy_blade",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1738814936194,
+      "tag": "0001_military_infant_terrible",
+      "breakpoints": true
     }
   ]
 }

@@ -1,5 +1,6 @@
 import { InsertUser, SelectUser, users } from '../drizzle/schema'
 import { eq } from 'drizzle-orm'
+import { db } from './dbTurso'
 
 export const getUserByEmail = async (email: SelectUser['email']) => {
   const user = await db.select().from(users).where(eq(users.email, email))

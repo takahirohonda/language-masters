@@ -38,7 +38,7 @@ export const userProfile = sqliteTable('user_profile', {
   updatedAt: createdAt(),
 })
 
-export const sentenceList = sqliteTable('game_records', {
+export const sentenceList = sqliteTable('sentence_list', {
   id: integer('id').primaryKey(),
   userId: text('user_id')
     .notNull()
