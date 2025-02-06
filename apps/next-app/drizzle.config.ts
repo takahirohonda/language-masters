@@ -1,19 +1,18 @@
-require('dotenv').config({ path: 'apps/next-app/.env' })
 import { defineConfig } from 'drizzle-kit'
 
+import { config } from 'dotenv'
+config({ path: '.env' })
+
+console.log('TURSO_CONNECTION_URL:', process.env.TURSO_CONNECTION_URL)
+console.log('TURSO_AUTH_TOKEN:', process.env.TURSO_AUTH_TOKEN)
+
 export default defineConfig({
-  dialect: 'postgresql',
-  // __dirname doesn't work when running drizzle kit generate and migrate...
-  // out: path.join(__dirname, 'src/app/drizzle/migration'),
+  dialect: 'turso',
   out: './apps/next-app/src/drizzle/migration',
   schema: './apps/next-app/src/drizzle/schema.ts',
   dbCredentials: {
-    host: process.env.DB_HOST!,
-    // port: Number(process.env.DB_PORT!),
-    user: process.env.DB_USERNAME!,
-    password: process.env.DB_PASSWORD!,
-    database: process.env.DB_NAME!,
-    ssl: 'require',
+    url: process.env.TURSO_CONNECTION_URL ?? '',
+    authToken: process.env.TURSO_AUTH_TOKEN ?? '',
   },
   // Print all statements
   verbose: true,
