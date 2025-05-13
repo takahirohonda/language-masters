@@ -6,6 +6,7 @@ export const testFormValueSchema = z.object({
     message: 'Age needs to be number',
   }),
   title: z.string().min(1, { message: 'Title is required' }),
+  phone: z.string(),
 })
 
 export type TestFormValues = z.infer<typeof testFormValueSchema>
